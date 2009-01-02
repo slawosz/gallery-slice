@@ -1,0 +1,15 @@
+.photo
+  .admin-links
+    = link_to "Edytuj", slice_url(:edit_gallery_photo, @gallery, photo)
+    = link_to "Usuń", slice_url(:confirm_gallery_photo, @gallery, photo)
+  = link_to( image_tag( photo.file.url(:thumb) ), slice_url(:gallery_photo, @gallery.id, photo ))
+  .title
+    = photo.title.blank? ? "<i>(edytuj zdjęcie)</i>" : photo.title
+  .description
+    = photo.description.blank? ? "<i>(edytuj zdjęcie)</i>" : photo.description
+  .comment-link
+    = link_to "9 komentarzy", "#"
+
+- if (collection_index.to_i + 1)  %  4 == 0
+  .clear
+

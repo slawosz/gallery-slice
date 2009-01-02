@@ -1,0 +1,12 @@
+= Merb::Slices::config[:gallery_slice].inspect
+%h1 Galleries controller, index action
+
+= link_to "Add new gallery", slice_url(:new_gallery)
+
+#galleries
+  %ul
+    - for gallery in @galleries
+      %li
+        = link_to gallery.name, slice_url(:gallery, gallery)
+
+= link_to "Add new gallery", slice_url(:new_gallery)

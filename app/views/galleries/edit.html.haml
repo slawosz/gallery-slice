@@ -1,0 +1,17 @@
+
+= error_messages_for :gallery
+
+%h2 Edit gallery
+
+= form_for(@gallery, :action => slice_url(:gallery, @gallery)) do
+
+  %p
+    = text_field :name, :label => "Name"
+
+  %p
+    = text_area :description, :label => "Description"
+
+  %p
+    = submit "Save"
+
+  = link_to 'Cancel and back to gallery', slice_url(:galleries)

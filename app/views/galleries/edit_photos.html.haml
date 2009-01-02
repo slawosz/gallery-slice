@@ -1,0 +1,12 @@
+
+
+%h2 Edit uploaded photos
+
+= form_for(@gallery, :action => slice_url(:gallery, @gallery)) do
+
+  = partial :edit_photo, :with => @photos
+  
+  %p
+    = submit "Save"
+
+  = link_to 'Cancel and go to gallery', slice_url(:galleries)

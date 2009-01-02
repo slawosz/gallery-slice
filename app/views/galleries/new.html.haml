@@ -1,0 +1,12 @@
+%h2 Dodawanie nowej galerii
+
+= error_messages_for @gallery
+
+= form_for @gallery, :action => slice_url(:galleries) do
+  %p= text_field :name, :label => "Nazwa galerii"
+  %p= text_area :description, :label => "Opis galerii"
+
+  - (1..6).each do
+    %p= file_field :name => "photos[]", :label => "Wybierz zdjęcie"
+  
+  %p= "#{submit "Dodaj galerię"} #{link_to "anuluj", slice_url(:galleries)}"

@@ -1,0 +1,20 @@
+!!! Strict
+%html
+  %head
+    %title GallerySlice
+    %meta{ :content => 'text/html; charset=utf-8', 'http-equiv' => "content-type" }/
+    = css_include_tag :master
+%body
+  = params.inspect
+  #header-container
+    #header
+  #container-container
+    #container
+      %h1 GallerySlice Slice
+      #content	
+        - message.each_pair do |type, msg|
+          = tag :div, msg, :class => type.to_s, :id => "flash"
+
+        = catch_content :for_layout
+
+

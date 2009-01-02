@@ -1,0 +1,9 @@
+%p
+  = text_field :name => "photos[#{edit_photo.id}][title]", :label => "Tytuł"
+  %br
+  Opis:
+  %br
+  = text_area :name => "photos[#{edit_photo.id}][description]"
+  = image_tag edit_photo.file.url(:thumb)
+
+

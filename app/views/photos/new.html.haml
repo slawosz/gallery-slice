@@ -1,0 +1,13 @@
+%h1 Photos controller, new action
+
+= error_messages_for :photo
+
+= form_for(@photo, :action => slice_url(:gallery_photos, @gallery)) do
+  - (1..6).each do
+    %p= file_field :name => "photos[]", :label => "Wybierz zdjęcie"
+
+  %p= hidden_field :gallery_id, :value => @gallery.id
+  %p
+    = submit "Dodaj zdjęcie"
+
+= link_to 'Anuluj', slice_url(:gallery, @gallery)

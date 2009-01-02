@@ -1,0 +1,16 @@
+%h2== Zdjęcie #{@photo.title}
+
+
+= link_to 'Edytuj',  slice_url(:edit_gallery_photo, @gallery, @photo)
+|
+= link_to 'Powrót do gallerii', slice_url(:gallery, @gallery)
+
+#previous-photo
+  = photo_link(@photo.previous_photo_path, @photo.previous_photo_id, @gallery.id, "Previous photo")
+#photo
+  = image_tag @photo.file.url(:big)
+  %br
+  = @photo.description
+#next-photo
+  = photo_link(@photo.next_photo_path, @photo.next_photo_id, @gallery.id, "Next photo")
+.clear

@@ -1,0 +1,18 @@
+.gallery
+  %h2= "Galeria #{h @gallery.name }"
+
+  .description
+    = @gallery.description
+
+  %br
+
+  = link_to "Add new photos", slice_url(:new_gallery_photo, @gallery)
+  = link_to "Edit gallery", slice_url(:edit_gallery, @gallery)
+
+  %br
+
+  = partial :photo, :with => @gallery.photos
+
+  .clear
+
+  = link_to "Powrót", slice_url(:galleries)

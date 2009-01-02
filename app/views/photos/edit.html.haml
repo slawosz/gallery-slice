@@ -1,0 +1,26 @@
+
+= error_messages_for :photo
+
+= form_for(@photo, :action => slice_url(:gallery_photo, @gallery, @photo)) do
+
+  %p
+    = text_field :title, :label => "Tytuł"
+
+  %p
+    = text_area :description, :label => "Opis"
+
+  %p
+    Aktualne zdjęcie:
+    %br
+    = image_tag @photo.file.url(:thumb)
+    %br
+
+    = file_field :file, :label => "Nowe zdjęcie"
+
+
+  %p
+    = submit "Zapisz"
+
+= link_to 'Zobacz zdjęcie', slice_url(:gallery_photo, @gallery, @photo)
+|
+= link_to 'Anuluj', slice_url(:gallery, @gallery)
