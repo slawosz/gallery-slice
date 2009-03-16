@@ -2,7 +2,7 @@ class GallerySlice::Photos < GallerySlice::Application
   # provides :xml, :yaml, :js
 
   def index
-    @photos = Photo.all
+    @photos = get_model.photos
     display @photos
   end
 

@@ -6,8 +6,8 @@
   - for photo in @photos
     %tr
       %td
-        = link_to 'Show', url(:photo, photo)
+        = link_to 'Show', slice_url(:gallery_photo, params[:gallery_id], photo)
       %td
-        = link_to 'Edit', url(:edit_photo,  photo)
+        = link_to 'Edit', slice_url(:edit_gallery_photo, params[:gallery_id], photo)
 
-= link_to 'New', url(:new_photo)
+= link_to 'New', slice_url(:new_gallery_photo)

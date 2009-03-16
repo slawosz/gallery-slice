@@ -8,8 +8,8 @@
 # the 'merb' command, and takes all the same options, including -i to drop 
 # into an irb session for example.
 
-merb_gems_version = "1.0.6.1"
-dm_gems_version   = "0.9.8"
+merb_gems_version = "1.0.9"
+dm_gems_version   = "0.9.10"
    
 dependency "merb-more", merb_gems_version
 # Uncomment the following two lines to develop with haml instead of erb.
@@ -23,7 +23,7 @@ dependency "dm-timestamps", dm_gems_version
 dependency "dm-types", dm_gems_version
 dependency "dm-validations", dm_gems_version
 dependency "dm-paperclip", "2.1.4"
-
+dependency "merb_parts", "0.9.13"
 use_orm :datamapper
 #use_template_engine :erb
 
@@ -43,6 +43,7 @@ use_orm :datamapper
 #rails message style from http://teamon.eu/2008/10/31/merb-flash/
 require "lib/flash.rb"
 
+#Merb::Config[:models] = [Gallery,Yacht]
 Merb::Config.use do |c|
 
   # Sets up a custom session id key which is used for the session persistence
@@ -61,6 +62,6 @@ Merb::Config.use do |c|
   # When running a slice standalone, you're usually developing it,
   # so enable template reloading by default.
   c[:reload_templates] = true
-  
+  #c[:models] = [Gallery,Yacht]  
 end
 

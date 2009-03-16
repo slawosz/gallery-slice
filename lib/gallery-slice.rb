@@ -91,3 +91,51 @@ if defined?(Merb::Plugins)
   # dependency "gallery-slice/other"
   
 end
+
+module GallerySlicePhotos
+  
+  def self.included(base)
+    base.class_eval do
+      include GallerySlicePhotos::InstanceMethods
+      extend GallerySlicePhotos::DMClassMethods
+    end
+  end
+  
+  module DMClassMethods
+    def self.extended(base)
+      base.class_eval do
+        attr_accessor :photo
+
+        belongs_to :gallery
+      	property :gallery_id, Integer
+
+        after :save, :add_photos
+      end
+    end
+  end
+
+  module InstanceMethods 
+   
+    def new_photos 
+      self.photos.all( :new => true )
+    end
+   
+    def photos
+      Photo.all( :gallery_id => self.gallery_id )
+    end
+    
+    def add_photos
+      if self.gallery.blank?
+        g = Gallery.create :name => "gallery for #{self.class} ,#{self.id}"
+        self.gallery_id = g.id
+        self.save
+      else
+        self.photo.each do |v|
+          Photo.create(:file => v, :gallery_id => self.gallery_id) unless v.blank?
+        end
+      end
+    end
+
+  end
+
+end

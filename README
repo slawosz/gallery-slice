@@ -1,5 +1,32 @@
+
+
+
+
 GallerySlice
 ============
+
+Now, you can simply install gallery slice and have galleries in your app!
+You can have common galleries, or, associate photos to your model! It is very easy, and transparent for users.
+(now, you can only add galeries :(, but I'm developing now)
+To associate with your resource (i will simplyfy it soon):
+  * add = file_field :name => "photos[]", :label => "Select photo" in your form 
+  * add some_method in your controler (TODO)
+  * redirect your controller to ...(TODO)
+  * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 A slice for the Merb framework.
 

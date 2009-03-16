@@ -3,8 +3,8 @@
 = error_messages_for :photo
 
 = form_for(@photo, :action => slice_url(:gallery_photos, @gallery)) do
-  - (1..6).each do
-    %p= file_field :name => "photos[]", :label => "Wybierz zdjęcie"
+  
+  = partial "photos/_form"
 
   %p= hidden_field :gallery_id, :value => @gallery.id
   %p

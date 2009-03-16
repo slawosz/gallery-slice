@@ -7,14 +7,13 @@ class Gallery
   property :updated_at,  DateTime
   
   has n, :photos
+  has 1, :yacht
 
   validates_present :name
 
   def add_photos(photos)
     photos.each do |v|
       Photo.create(:file => v, :gallery_id => self.id) unless v.blank?
-      #photo = Photo.create(:file => v, :gallery_id => self.id) unless v.blank?
-      #Merb.logger.info("Dodanie zdjęcia #{photo.inspect}")
     end
   end
 
